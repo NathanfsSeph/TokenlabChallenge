@@ -86,8 +86,7 @@ class MainViewModel(
 
     }
 
-    fun getSpecificMovie(movieId: Int,oldMovie : Movie) {
-
+    fun getSpecificMovie(movieId: Int) {
         APIService.service.getSpecificMovie(movieId)
             .enqueue(object : Callback<MovieDetailsResponse> {
 
@@ -108,7 +107,7 @@ class MainViewModel(
                                 title = movieDetailsResponse.title
                             )
 
-                            val movieIndex = mainScreenState.value!!.movies.indexOf(oldMovie)
+                            val movieIndex = mainScreenState.value!!.movies.indexOfFirst { it.id == movieId }
 
                             mainScreenState.value!!.movies.elementAt(movieIndex).overview = updatedMovie.overview
 
@@ -121,7 +120,7 @@ class MainViewModel(
                 }
 
                 override fun onFailure(call: Call<MovieDetailsResponse>, t: Throwable) {
-
+                    mainScreenState.value!!.isLoading = false
                 }
             })
 

@@ -7,21 +7,21 @@ import kotlinx.coroutines.withContext
 class MovieRepository (private val dao: MovieDAO) {
 
 
-    suspend fun getAllMovies() : List<Movie> = withContext(Dispatchers.IO){
+    suspend fun getAllMovies() : List<Movie> = withContext(Dispatchers.IO) {
         return@withContext dao.getAllMovies()
     }
 
-    suspend fun insert(movie: Movie) : Long {
-        return dao.insertMovie(movie)
+    suspend fun insert(movie: Movie) : Long = withContext(Dispatchers.IO) {
+        return@withContext dao.insertMovie(movie)
     }
 
-    suspend fun update(movie: Movie): Int {
-        return dao.updateMovie(movie)
+    suspend fun update(movie: Movie): Int = withContext(Dispatchers.IO) {
+        return@withContext dao.updateMovie(movie)
     }
 
 
-    fun deleteAll() : Int {
-        return dao.deleteAll()
+    suspend fun deleteAll() : Int = withContext(Dispatchers.IO) {
+        return@withContext dao.deleteAll()
     }
 
 }

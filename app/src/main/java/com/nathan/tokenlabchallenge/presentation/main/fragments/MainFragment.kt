@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.nathan.tokenlabchallenge.R
@@ -11,6 +13,7 @@ import com.nathan.tokenlabchallenge.data.model.Movie
 import com.nathan.tokenlabchallenge.presentation.main.MainViewModel
 import com.nathan.tokenlabchallenge.presentation.main.adapter.MoviesAdapter
 import com.nathan.tokenlabchallenge.presentation.main.adapter.OnMovieListener
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -47,7 +50,7 @@ class MainFragment : Fragment(), OnMovieListener {
     }
 
     override fun onMovieClicked(movie: Movie) {
-        viewModel.getSpecificMovie(movieId = movie.id, oldMovie = movie)
+        viewModel.getSpecificMovie(movieId = movie.id)
         val movieIndex = viewModel.mainScreenState.value!!.movies.indexOf(movie)
 
         val action = MainFragmentDirections.actionMainFragmentToMovieDetailsActivity(
