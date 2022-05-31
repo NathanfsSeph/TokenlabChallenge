@@ -1,35 +1,25 @@
 package com.nathan.tokenlabchallenge.presentation.main
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nathan.tokenlabchallenge.data.APIService
-import com.nathan.tokenlabchallenge.data.database.MovieDatabase
 import com.nathan.tokenlabchallenge.data.database.MovieRepository
 import com.nathan.tokenlabchallenge.data.model.Movie
 import com.nathan.tokenlabchallenge.data.response.MovieBodyResponse
 import com.nathan.tokenlabchallenge.data.response.MovieDetailsResponse
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.single
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
-import okhttp3.internal.Util
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MainViewModel(
-    private val context: Context
+    private val repository: MovieRepository
 ) : ViewModel() {
 
     private val _mainScreenState: MutableLiveData<MainScreenState> = MutableLiveData()
     val mainScreenState: LiveData<MainScreenState> get() = _mainScreenState
-
-    private val dataAccessObject = MovieDatabase.getInstance(context).movieDAO
-    private val repository = MovieRepository(dataAccessObject)
 
     init {
         _mainScreenState.value = MainScreenState()
@@ -77,7 +67,7 @@ class MainViewModel(
                         val recoveredMovies = repository.getAllMovies()
 
                         _mainScreenState.value = mainScreenState.value?.copy(
-                                movies = recoveredMovies
+                            movies = recoveredMovies
                         )
                     }
 
@@ -87,7 +77,7 @@ class MainViewModel(
 
     }
 
-    fun getSpecificMovie(movieId: Int, f:(()-> Unit)?) {
+    fun getSpecificMovie(movieId: Int, f: (() -> Unit)?) {
         _mainScreenState.value = mainScreenState.value?.copy(
             isLoading = true
         )
@@ -111,9 +101,11 @@ class MainViewModel(
                                 title = movieDetailsResponse.title
                             )
 
-                            val movieIndex = mainScreenState.value!!.movies.indexOfFirst { it.id == movieId }
+                            val movieIndex =
+                                mainScreenState.value!!.movies.indexOfFirst { it.id == movieId }
 
-                            mainScreenState.value!!.movies.elementAt(movieIndex).overview = updatedMovie.overview
+                            mainScreenState.value!!.movies.elementAt(movieIndex).overview =
+                                updatedMovie.overview
                             _mainScreenState.value = mainScreenState.value?.copy(
                                 isLoading = false
                             )

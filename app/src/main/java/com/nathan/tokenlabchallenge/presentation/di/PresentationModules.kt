@@ -9,7 +9,7 @@ val presentationModules = module {
 
     viewModel {
         MainViewModel(
-            context = androidContext()
+            repository = get()
         )
     }
 
