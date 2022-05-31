@@ -39,6 +39,7 @@ class MainFragment : Fragment(), OnMovieListener {
         viewModel.mainScreenState.observe(viewLifecycleOwner) {
             it?.let {
                 adapter.updateDataSet(it.movies)
+                progress_bar.isVisible = it.isLoading
             }
         }
     }
@@ -50,14 +51,16 @@ class MainFragment : Fragment(), OnMovieListener {
     }
 
     override fun onMovieClicked(movie: Movie) {
-        viewModel.getSpecificMovie(movieId = movie.id)
-        val movieIndex = viewModel.mainScreenState.value!!.movies.indexOf(movie)
+        viewModel.getSpecificMovie(movieId = movie.id){
+            val movieIndex = viewModel.mainScreenState.value!!.movies.indexOf(movie)
 
-        val action = MainFragmentDirections.actionMainFragmentToMovieDetailsActivity(
-            viewModel.mainScreenState.value!!.movies.elementAt(movieIndex)
-        )
+            val action = MainFragmentDirections.actionMainFragmentToMovieDetailsActivity(
+                viewModel.mainScreenState.value!!.movies.elementAt(movieIndex)
+            )
 
-        findNavController().navigate(action)
+            findNavController().navigate(action)
+        }
+
     }
 
 }

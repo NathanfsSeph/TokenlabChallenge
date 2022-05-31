@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
+import okhttp3.internal.Util
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -86,7 +87,10 @@ class MainViewModel(
 
     }
 
-    fun getSpecificMovie(movieId: Int) {
+    fun getSpecificMovie(movieId: Int, f:(()-> Unit)?) {
+        _mainScreenState.value = mainScreenState.value?.copy(
+            isLoading = true
+        )
         APIService.service.getSpecificMovie(movieId)
             .enqueue(object : Callback<MovieDetailsResponse> {
 
@@ -110,8 +114,10 @@ class MainViewModel(
                             val movieIndex = mainScreenState.value!!.movies.indexOfFirst { it.id == movieId }
 
                             mainScreenState.value!!.movies.elementAt(movieIndex).overview = updatedMovie.overview
-
-
+                            _mainScreenState.value = mainScreenState.value?.copy(
+                                isLoading = false
+                            )
+                            f?.invoke()
                             viewModelScope.launch {
                                 repository.update(updatedMovie)
                             }
@@ -120,7 +126,10 @@ class MainViewModel(
                 }
 
                 override fun onFailure(call: Call<MovieDetailsResponse>, t: Throwable) {
-                    mainScreenState.value!!.isLoading = false
+                    _mainScreenState.value = mainScreenState.value?.copy(
+                        isLoading = false
+                    )
+
                 }
             })
 
