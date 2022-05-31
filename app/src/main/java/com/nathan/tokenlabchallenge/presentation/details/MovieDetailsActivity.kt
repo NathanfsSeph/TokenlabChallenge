@@ -17,6 +17,8 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         val movie = args.movie
 
+        // Chamar a updateMovie do MovieRepository passando movie
+
         Glide.with(imageMovieDetailsPosterPath)
             .load(movie.poster_url)
             .into(imageMovieDetailsPosterPath)

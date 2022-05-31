@@ -47,7 +47,13 @@ class MainFragment : Fragment(), OnMovieListener {
     }
 
     override fun onMovieClicked(movie: Movie) {
-        val action = MainFragmentDirections.actionMainFragmentToMovieDetailsActivity(movie)
+        viewModel.getSpecificMovie(movieId = movie.id, oldMovie = movie)
+        val movieIndex = viewModel.mainScreenState.value!!.movies.indexOf(movie)
+
+        val action = MainFragmentDirections.actionMainFragmentToMovieDetailsActivity(
+            viewModel.mainScreenState.value!!.movies.elementAt(movieIndex)
+        )
+
         findNavController().navigate(action)
     }
 

@@ -40,7 +40,7 @@
         android:text="Genres : "
         android:textColor="@color/gray"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textMovieDetailsOverview"
+        app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath"
         app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsTitle" />
 
 
@@ -58,6 +58,8 @@
         android:id="@+id/textMovieDetailsOverview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:padding="6dp"
         android:text="Lorem ipsum dolor sit amet. Sed galisum omnis et modi nostrum qui corrupti esse ea molestiae molestiae et enim nihil sed autem perspiciatis quo quod accusantium. Et aliquam eligendi ut unde soluta rem incidunt dolor aut dolorum sunt.
 
@@ -65,8 +67,8 @@ Et molestiae molestiae eos consectetur neque et modi enim id doloribus sint in m
 
 "
         android:textColor="@color/gray"
-        app:layout_constraintEnd_toEndOf="@+id/imageMovieDetailsPosterPath"
-        app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
@@ -74,20 +76,22 @@ Et molestiae molestiae eos consectetur neque et modi enim id doloribus sint in m
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:text="Release Date : "
         android:textColor="@color/gray"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textMovieDetailsReleaseDate"
-        app:layout_constraintStart_toStartOf="@+id/textMovieDetailsOverview" />
+        app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath"
+        app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsOverview" />
 
     <TextView
         android:id="@+id/textMovieDetailsReleaseDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:text="2022-05-13"
         android:textColor="@color/gray"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsOverview" />
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
 
     <TextView
@@ -98,13 +102,14 @@ Et molestiae molestiae eos consectetur neque et modi enim id doloribus sint in m
         android:textColor="@color/gray"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/textMovieDetailsOriginalLanguage"
-        app:layout_constraintStart_toStartOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath" />
 
     <TextView
         android:id="@+id/textMovieDetailsOriginalLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
         android:text="en"
         android:textColor="@color/gray"
         app:layout_constraintStart_toEndOf="@+id/textView3"

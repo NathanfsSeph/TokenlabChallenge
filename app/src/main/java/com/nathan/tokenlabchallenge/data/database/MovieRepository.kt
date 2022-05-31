@@ -1,12 +1,17 @@
 package com.nathan.tokenlabchallenge.data.database
 
 import com.nathan.tokenlabchallenge.data.model.Movie
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class MovieRepository (private val dao: MovieDAO) {
 
-    val movies = dao.getAllMovie()
 
-    suspend fun insert(movie: Movie): Long {
+    suspend fun getAllMovies() : List<Movie> = withContext(Dispatchers.IO){
+        return@withContext dao.getAllMovies()
+    }
+
+    suspend fun insert(movie: Movie) : Long {
         return dao.insertMovie(movie)
     }
 
@@ -14,11 +19,8 @@ class MovieRepository (private val dao: MovieDAO) {
         return dao.updateMovie(movie)
     }
 
-    suspend fun delete(movie: Movie): Int {
-        return dao.deleteMovie(movie)
-    }
 
-    fun deleteAll(): Int {
+    fun deleteAll() : Int {
         return dao.deleteAll()
     }
 
