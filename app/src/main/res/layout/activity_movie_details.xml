@@ -1,119 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.details.MovieDetailsActivity"
-    android:padding="15dp">
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/imageMovieDetailsPosterPath"
-        android:layout_width="0dp"
-        android:layout_height="350dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-
-    <TextView
-        android:id="@+id/textMovieDetailsTitle"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="The return of those who didn't go"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/imageMovieDetailsPosterPath" />
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Genres : "
-        android:textColor="@color/gray"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath"
-        app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsTitle" />
+        <ImageView
+            android:id="@+id/imageMovieDetailsPosterPath"
+            android:layout_width="0dp"
+            android:layout_height="350dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
 
-    <TextView
-        android:id="@+id/textMovieDetailsGenre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Genre"
-        android:textColor="@color/gray"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsTitle" />
+        <TextView
+            android:id="@+id/textMovieDetailsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="The return of those who didn't go"
+            android:textColor="@color/gray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/imageMovieDetailsPosterPath" />
 
-    <TextView
-        android:id="@+id/textMovieDetailsOverview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:padding="6dp"
-        android:text="Lorem ipsum dolor sit amet. Sed galisum omnis et modi nostrum qui corrupti esse ea molestiae molestiae et enim nihil sed autem perspiciatis quo quod accusantium. Et aliquam eligendi ut unde soluta rem incidunt dolor aut dolorum sunt.
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Genres : "
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath"
+            app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsTitle" />
+
+
+        <TextView
+            android:id="@+id/textMovieDetailsGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Genre"
+            android:textColor="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsTitle" />
+
+        <TextView
+            android:id="@+id/textMovieDetailsOverview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="6dp"
+            android:text="Lorem ipsum dolor sit amet. Sed galisum omnis et modi nostrum qui corrupti esse ea molestiae molestiae et enim nihil sed autem perspiciatis quo quod accusantium. Et aliquam eligendi ut unde soluta rem incidunt dolor aut dolorum sunt.
 
 Et molestiae molestiae eos consectetur neque et modi enim id doloribus sint in mollitia temporibus. Quo facilis praesentium sed natus omnis sed dolorum quae et iusto dicta.
 
 "
-        android:textColor="@color/gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:textColor="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="Release Date : "
-        android:textColor="@color/gray"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath"
-        app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsOverview" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Release Date : "
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath"
+            app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsOverview" />
 
-    <TextView
-        android:id="@+id/textMovieDetailsReleaseDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="2022-05-13"
-        android:textColor="@color/gray"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
-
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Original Language : "
-        android:textColor="@color/gray"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textMovieDetailsOriginalLanguage"
-        app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath" />
-
-    <TextView
-        android:id="@+id/textMovieDetailsOriginalLanguage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:text="en"
-        android:textColor="@color/gray"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsReleaseDate" />
+        <TextView
+            android:id="@+id/textMovieDetailsReleaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="2022-05-13"
+            android:textColor="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Original Language : "
+            android:textColor="@color/gray"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textMovieDetailsOriginalLanguage"
+            app:layout_constraintStart_toStartOf="@+id/imageMovieDetailsPosterPath" />
+
+        <TextView
+            android:id="@+id/textMovieDetailsOriginalLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:text="en"
+            android:textColor="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textMovieDetailsReleaseDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
