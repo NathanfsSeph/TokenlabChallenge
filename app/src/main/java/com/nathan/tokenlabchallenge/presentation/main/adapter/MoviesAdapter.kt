@@ -39,6 +39,7 @@ class MoviesAdapter(
 
             Glide.with(poster)
                 .load(movie.poster_url)
+                .error(R.drawable.ic_baseline_error_24)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(poster)
 

@@ -97,6 +97,7 @@ class MainViewModel(
                                 overview = movieDetailsResponse.overview,
                                 release_date = movieDetailsResponse.release_date,
                                 genres = movieDetailsResponse.genres.toString(),
+                                original_language = movieDetailsResponse.original_language,
                                 vote_average = movieDetailsResponse.vote_average,
                                 title = movieDetailsResponse.title
                             )
@@ -106,6 +107,8 @@ class MainViewModel(
 
                             mainScreenState.value!!.movies.elementAt(movieIndex).overview =
                                 updatedMovie.overview
+                            mainScreenState.value!!.movies.elementAt(movieIndex).original_language =
+                                updatedMovie.original_language
                             _mainScreenState.value = mainScreenState.value?.copy(
                                 isLoading = false
                             )

@@ -19,6 +19,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         Glide.with(imageMovieDetailsPosterPath)
             .load(movie.poster_url)
+            .error(R.drawable.ic_baseline_error_24)
             .into(imageMovieDetailsPosterPath)
 
         textMovieDetailsOverview.text = movie.overview
